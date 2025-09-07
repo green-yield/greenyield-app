@@ -1,0 +1,147 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <i class="fas fa-seedling"></i>
+                <span>{{ site.title }}</span>
+            </div>
+            <h1 class="hero-title">{{ page.hero.title | default: "Sustainable Agriculture for the Future" }}</h1>
+            <p class="hero-description">
+                {{ page.hero.description | default: "GreenYield App revolutionizes farming with data-driven insights, helping farmers optimize crop yields while protecting the environment." }}
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ page.hero.primary_button.url | default: '#features' }}" class="btn btn-primary">{{ page.hero.primary_button.text | default: "Get Started" }}</a>
+                <a href="{{ page.hero.secondary_button.url | default: '#about' }}" class="btn btn-secondary">{{ page.hero.secondary_button.text | default: "Learn More" }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <h2 class="section-title">{{ page.features.title | default: "Key Features" }}</h2>
+        <div class="features-grid">
+            {% for feature in site.features %}
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="{{ feature.icon }}"></i>
+                </div>
+                <h3>{{ feature.title }}</h3>
+                <p>{{ feature.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>{{ page.about.title | default: "About GreenYield" }}</h2>
+                <p>
+                    {{ page.about.description | default: "GreenYield App is at the forefront of agricultural technology, combining traditional farming wisdom with cutting-edge digital solutions. Our mission is to empower farmers with the tools they need to increase productivity while maintaining environmental sustainability." }}
+                </p>
+                <p>
+                    {{ page.about.secondary_description | default: "Founded by agricultural experts and technology innovators, we understand the challenges modern farmers face. Our platform provides actionable insights that help optimize resources, reduce waste, and maximize yields." }}
+                </p>
+                <div class="stats">
+                    {% for stat in site.stats %}
+                    <div class="stat">
+                        <h3>{{ stat.number }}</h3>
+                        <p>{{ stat.label }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="about-graphic">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">{{ page.contact.title | default: "Get In Touch" }}</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>{{ page.contact.subtitle | default: "Ready to transform your farming?" }}</h3>
+                <p>{{ page.contact.description | default: "Join thousands of farmers who are already using GreenYield to optimize their operations." }}</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>{{ site.contact.email }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>{{ site.contact.phone }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{ site.contact.address }}</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>{{ site.title }}</span>
+                </div>
+                <p>{{ page.footer.description | default: "Empowering sustainable agriculture through technology." }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    {% for link in site.social.links %}
+                    <a href="{{ link }}" target="_blank" rel="noopener">
+                        <i class="fab fa-{% if link contains 'twitter' %}twitter{% elsif link contains 'facebook' %}facebook{% elsif link contains 'linkedin' %}linkedin{% elsif link contains 'instagram' %}instagram{% endif %}"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

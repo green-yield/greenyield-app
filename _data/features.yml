@@ -1,0 +1,15 @@
+- title: "Yield Analytics"
+  description: "Advanced analytics to track and optimize crop yields with precision farming techniques."
+  icon: "fas fa-chart-bar"
+
+- title: "Weather Integration"
+  description: "Real-time weather data integration to help you make informed farming decisions."
+  icon: "fas fa-cloud-sun"
+
+- title: "Sustainability Tracking"
+  description: "Monitor your environmental impact and implement sustainable farming practices."
+  icon: "fas fa-recycle"
+
+- title: "Mobile Access"
+  description: "Access your farm data anywhere with our responsive mobile application."
+  icon: "fas fa-mobile-alt"

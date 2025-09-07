@@ -1,0 +1,108 @@
+# Site settings
+title: "GreenYield App"
+description: "GreenYield App provides innovative solutions for sustainable agriculture and crop yield optimization."
+baseurl: "/greenyield-app" # the subpath of your site, e.g. /blog
+url: "https://green-yield.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  features:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "features"
+    values:
+      layout: "feature"
+
+# Plugins (GitHub Pages compatible)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-avatar
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-remote-theme
+  - jekyll-sass-converter
+  - jekyll-titles-from-headings
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - .gitignore
+
+# Include
+include:
+  - _pages
+
+# SEO
+author: "GreenYield Team"
+twitter:
+  username: greenyield
+  card: summary_large_image
+
+# Social
+social:
+  name: GreenYield
+  links:
+    - https://twitter.com/greenyield
+    - https://facebook.com/greenyield
+    - https://linkedin.com/company/greenyield
+    - https://instagram.com/greenyield
+
+# Contact
+contact:
+  email: info@greenyield.app
+  phone: "+1 (555) 123-4567"
+  address: "San Francisco, CA"
+
+# Features data
+features:
+  - title: "Yield Analytics"
+    description: "Advanced analytics to track and optimize crop yields with precision farming techniques."
+    icon: "fas fa-chart-bar"
+  - title: "Weather Integration"
+    description: "Real-time weather data integration to help you make informed farming decisions."
+    icon: "fas fa-cloud-sun"
+  - title: "Sustainability Tracking"
+    description: "Monitor your environmental impact and implement sustainable farming practices."
+    icon: "fas fa-recycle"
+  - title: "Mobile Access"
+    description: "Access your farm data anywhere with our responsive mobile application."
+    icon: "fas fa-mobile-alt"
+
+# Stats
+stats:
+  - number: "10,000+"
+    label: "Active Farmers"
+  - number: "25%"
+    label: "Average Yield Increase"
+  - number: "50+"
+    label: "Countries Served"
