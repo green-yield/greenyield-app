@@ -1,19 +1,4 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
+// Smooth scrolling for any remaining anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,18 +12,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
@@ -46,7 +19,6 @@ if (contactForm) {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(this);
         const name = this.querySelector('input[type="text"]').value;
         const email = this.querySelector('input[type="email"]').value;
         const message = this.querySelector('textarea').value;
@@ -173,22 +145,12 @@ document.querySelectorAll('.btn').forEach(btn => {
 // Add click effects to feature cards
 document.querySelectorAll('.feature-card').forEach(card => {
     card.addEventListener('click', function() {
-        this.style.transform = 'translateY(-5px) scale(1.02)';
+        this.style.transform = 'translateY(-8px) scale(1.02)';
         
         setTimeout(() => {
-            this.style.transform = 'translateY(-5px) scale(1)';
+            this.style.transform = 'translateY(-8px) scale(1)';
         }, 200);
     });
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroGraphic = document.querySelector('.hero-graphic');
-    
-    if (heroGraphic) {
-        heroGraphic.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
 });
 
 // Add typing effect to hero title
@@ -216,4 +178,30 @@ document.addEventListener('DOMContentLoaded', () => {
             typeWriter(heroTitle, originalText, 50);
         }, 500);
     }
+});
+
+// Add subtle parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    
+    if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+});
+
+// Add smooth reveal animation for sections
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 });
