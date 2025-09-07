@@ -1,6 +1,6 @@
 # GreenYield App 🌱
 
-A modern, responsive single-page website showcasing sustainable agriculture solutions and farming technology.
+A modern, responsive single-page Jekyll website showcasing sustainable agriculture solutions and farming technology, built for GitHub Pages deployment.
 
 ## 🌟 Features
 
@@ -19,48 +19,72 @@ Visit the live site: [GreenYield App](https://yourusername.github.io/greenyield-
 
 ```
 GreenYield-App/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-├── package.json        # Project configuration
+├── _config.yml         # Jekyll configuration
+├── _layouts/           # Jekyll layout templates
+│   ├── default.html    # Base layout
+│   └── home.html       # Home page layout
+├── _data/              # YAML data files
+│   ├── features.yml    # Features data
+│   └── stats.yml       # Statistics data
+├── assets/             # Static assets
+│   ├── css/
+│   │   └── main.css    # Main stylesheet
+│   └── js/
+│       └── main.js     # Main JavaScript
+├── index.html          # Home page with front matter
+├── Gemfile             # Ruby dependencies
 └── README.md          # Project documentation
 ```
 
 ## 🛠️ Technologies Used
 
+- **Jekyll**: Static site generator for GitHub Pages
+- **Liquid**: Templating language for dynamic content
 - **HTML5**: Semantic markup and modern web standards
 - **CSS3**: Flexbox, Grid, animations, and responsive design
 - **JavaScript (ES6+)**: Modern JavaScript with DOM manipulation
 - **Font Awesome**: Icon library for visual elements
 - **Google Fonts**: Inter font family for typography
+- **YAML**: Data files for content management
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- A modern web browser
-- Python 3.x (for local development server)
+- Ruby 2.7+ (for Jekyll)
+- Bundler gem
 - Git (for version control)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/greenyield-app.git
+   git clone https://github.com/green-yield/greenyield-app.git
    cd greenyield-app
    ```
 
-2. **Start local development server**
+2. **Install dependencies**
    ```bash
-   # Using Python (recommended)
-   python -m http.server 8000
-   
-   # Or using Node.js if you have it installed
-   npx serve .
+   bundle install
    ```
 
-3. **Open in browser**
-   Navigate to `http://localhost:8000` in your web browser
+3. **Start Jekyll development server**
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. **Open in browser**
+   Navigate to `http://localhost:4000` in your web browser
+
+### Alternative: Static Server (No Jekyll)
+If you don't want to install Jekyll locally, you can use a simple static server:
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx serve .
+```
 
 ## 📱 Responsive Breakpoints
 
